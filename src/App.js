@@ -23,6 +23,8 @@ import RestaurantRegistration from './Components/Restaurants/RestaurantRegistrat
 import RestaurantLogin from './Components/Restaurants/RestaurantLogin';
 import DashboardOverview from './Components/Restaurants/DashboardOverview';
 import RestaurantList from './Components/Restaurants/RestaurantList';
+import OrdersDashboard from './Components/Restaurants/OrdersDashboard';
+import UserInfo from './Components/Restaurants/UserInfo';
 function App() {
   const location = useLocation();
 
@@ -88,7 +90,8 @@ function App() {
             <Route path="/RestaurantLogin" element={<RestaurantLogin />} />
             <Route path="/RestaurantList" element={<RestaurantList/>}/>
             <Route path="/DashboardOverview" element={<DashboardOverview />} />
-
+             <Route path="/Orders" element={<OrdersDashboard />} />
+             <Route path="/Userinfo" element={<UserInfo />} />
             {/* Fallback Route */}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
