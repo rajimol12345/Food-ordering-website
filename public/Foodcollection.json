@@ -14,19 +14,19 @@
   {
     "id": 3,
     "name": "Desserts",
-    "image": "/img/dessert.avif",
+    "image": "/images/dessert.jpg",
     "category": "Sweet"
   },
   {
     "id": 4,
     "name": "Pasta",
-    "image": "/img/pasta.avif",
+    "image": "/images/pasta.png",
     "category": "Main"
   },
   {
     "id": 5,
     "name": "Salad",
-    "image": "/img/salad.avif",
+    "image": "/images/salad.jpg",
     "category": "Healthy"
   }
 ]

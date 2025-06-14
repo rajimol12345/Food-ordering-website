@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "Spice Villa",
+    "address": "123 Main Street, Mumbai",
+    "phone": "+91 9876543210",
+    "cuisine": "Indian",
+    "email": "contact@spicevilla.com",
+    "rating": 4.5,
+    "openingHours": "10:00 AM - 11:00 PM",
+    "history": "Spice Villa was founded in 2005 to bring traditional Indian flavors to a modern audience.",
+    "offers": [
+      "10% off on orders above ₹500",
+      "Free dessert with every main course on weekends"
+    ],
+    "menu": [
+      { "name": "Paneer Butter Masala", "price": "₹250" },
+      { "name": "Chicken Biryani", "price": "₹300" },
+      { "name": "Gulab Jamun", "price": "₹100" }
+    ]
+  }
+  
+]

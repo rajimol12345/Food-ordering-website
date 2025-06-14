@@ -15,10 +15,11 @@ import Profile from './Components/Profile';
 import Logout from './Components/Logout';
 import Index from './Components/Index';
 import Sidebar from './Components/Restaurants/Sidebar';
+import RestaurantDetail from './Components/Restaurants/RestaurantDetail';
 
 // Restaurant Module
 import Homepage from './Components/Restaurants/Homepage';
-import RestaurantRegistration from './Components/Restaurants/RestaurantRegistration'; // ✅ Fixed spelling
+import RestaurantRegistration from './Components/Restaurants/RestaurantRegistration'; 
 import RestaurantLogin from './Components/Restaurants/RestaurantLogin';
 import DashboardOverview from './Components/Restaurants/DashboardOverview';
 import RestaurantList from './Components/Restaurants/RestaurantList';
@@ -74,6 +75,7 @@ function App() {
             <Route path="/LoginForm" element={<LoginForm />} />
             <Route path="/RegisterForm" element={<RegisterForm />} />
             <Route path="/Home" element={<Home />} />
+             <Route path="/restaurant/:id" element={<RestaurantDetail />} />
             <Route path="/Menu" element={<Menu />} />
             <Route path="/Cart" element={<Cart />} />
             <Route path="/Order" element={<Orders />} />
