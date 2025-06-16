@@ -1,6 +1,7 @@
 [
   {
     "id": 1,
+    "image":"/images/Banner of Spice Villa.png",
     "name": "Spice Villa",
     "address": "123 Main Street, Mumbai",
     "phone": "+91 9876543210",
@@ -14,10 +15,68 @@
       "Free dessert with every main course on weekends"
     ],
     "menu": [
-      { "name": "Paneer Butter Masala", "price": "₹250" },
-      { "name": "Chicken Biryani", "price": "₹300" },
-      { "name": "Gulab Jamun", "price": "₹100" }
-    ]
+  {
+    "name": "Paneer Butter Masala",
+    "description": "Cottage cheese cubes simmered in a rich, creamy tomato-based gravy.",
+    "price": 250,
+    "image": "https://source.unsplash.com/featured/?paneer"
+  },
+  {
+    "name": "Butter Chicken",
+    "description": "Tender chicken chunks cooked in a buttery tomato cream sauce.",
+    "price": 280,
+    "image": "https://source.unsplash.com/featured/?butter-chicken"
+  },
+  {
+    "name": "Veg Biryani",
+    "description": "Fragrant basmati rice cooked with fresh vegetables and aromatic spices.",
+    "price": 200,
+    "image": "https://source.unsplash.com/featured/?veg-biryani"
+  },
+  {
+    "name": "Chicken Biryani",
+    "description": "Spicy chicken layered with saffron-infused basmati rice.",
+    "price": 300,
+    "image": "https://source.unsplash.com/featured/?chicken-biryani"
+  },
+  {
+    "name": "Garlic Naan",
+    "description": "Soft leavened Indian bread topped with garlic and butter.",
+    "price": 50,
+    "image": "https://source.unsplash.com/featured/?garlic-naan"
+  },
+  {
+    "name": "Tandoori Roti",
+    "description": "Whole wheat flatbread baked in a tandoor oven.",
+    "price": 20,
+    "image": "https://source.unsplash.com/featured/?tandoori-roti"
+  },
+  {
+    "name": "Gulab Jamun",
+    "description": "Milk-solid dumplings soaked in warm rose-flavored syrup.",
+    "price": 100,
+    "image": "https://source.unsplash.com/featured/?gulab-jamun"
+  },
+  {
+    "name": "Rasgulla",
+    "description": "Spongy cheese balls in light sugar syrup.",
+    "price": 90,
+    "image": "https://source.unsplash.com/featured/?rasgulla"
+  },
+  {
+    "name": "Masala Dosa",
+    "description": "Crispy South Indian crepe stuffed with spiced potato filling.",
+    "price": 120,
+    "image": "https://source.unsplash.com/featured/?masala-dosa"
+  },
+  {
+    "name": "Lassi",
+    "description": "Traditional Punjabi sweet yogurt drink served chilled.",
+    "price": 50,
+    "image": "https://source.unsplash.com/featured/?lassi"
+  }
+]
+
   }
   
 ]

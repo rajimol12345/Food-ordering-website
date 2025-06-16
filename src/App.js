@@ -25,6 +25,7 @@ import DashboardOverview from './Components/Restaurants/DashboardOverview';
 import RestaurantList from './Components/Restaurants/RestaurantList';
 import OrdersDashboard from './Components/Restaurants/OrdersDashboard';
 import UserInfo from './Components/Restaurants/UserInfo';
+import Promotions from './Components/Restaurants/Promotions';
 function App() {
   const location = useLocation();
 
@@ -37,7 +38,10 @@ function App() {
     '/RestaurantRegistration',
     '/RestaurantLogin',
     '/DashboardOverview',
-    '/'
+    '/Orders',
+    '/Userinfo',
+    '/Promotions'
+
   ];
   const shouldHideHeader = hideHeaderOnRoutes.includes(location.pathname);
 
@@ -92,6 +96,7 @@ function App() {
             <Route path="/DashboardOverview" element={<DashboardOverview />} />
              <Route path="/Orders" element={<OrdersDashboard />} />
              <Route path="/Userinfo" element={<UserInfo />} />
+             <Route path="/Promotions" element={<Promotions />} />
             {/* Fallback Route */}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>

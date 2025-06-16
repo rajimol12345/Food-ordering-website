@@ -51,7 +51,7 @@ const Sidebar = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/promotions" className="nav-link">
+          <NavLink to="/Promotions" className="nav-link">
             <FaTags /><span>{!isCollapsed && 'Promotions'}</span>
           </NavLink>
         </li>

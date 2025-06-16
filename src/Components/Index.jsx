@@ -32,7 +32,7 @@ const Index = () => {
   return (
     <div>
       <div className="header">
-        <div className="logo">EatYoWay</div>
+        <div className="logo">EatToWay</div>
         <div className="nav-buttons">
           <Link to="/Homepage" className="nav-item">Add Restaurant</Link>
           <Link to="/RegisterForm" className="nav-item">Signup</Link>
@@ -41,7 +41,7 @@ const Index = () => {
       </div>
 
       <div className="hero" style={heroStyle}>
-        <h1 style={h1Style}>EatYoWay</h1>
+        <h1 style={h1Style}>EatToWay</h1>
         <div>
           <h2 style={h2Style}>Discover Top Restaurants, Cafés & Bars Across India</h2>
         </div>

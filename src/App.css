@@ -418,3 +418,162 @@ select {
 .user-name {
   font-weight: 500;
 }
+.promotions-container {
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+  font-family: sans-serif;
+}
+
+.promotion-form {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.promotion-form input,
+.promotion-form button {
+  padding: 8px;
+  font-size: 14px;
+}
+
+.promotion-form button {
+  background-color: #38b000;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.promotion-form button:hover {
+  background-color: #2f9000;
+}
+
+.promotions-list table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.promotions-list th,
+.promotions-list td {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.promotions-list button {
+  background: #ff4d4d;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.promotions-list button:hover {
+  background: #e60000;
+}
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fff5f5;
+}
+
+.search-container {
+  max-width: 600px;
+  margin: 100px auto;
+  padding: 40px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  text-align: center;
+}
+
+.search-container h1 {
+  color: #e23744;
+  margin-bottom: 30px;
+  font-size: 28px;
+}
+
+.search-box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.search-type,
+.search-input,
+.search-button {
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.search-type {
+  background-color: #fff;
+}
+
+.search-input {
+  flex: 1;
+  border: 1px solid #ccc;
+}
+
+.search-button {
+  background-color: #e23744;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.search-button:hover {
+  background-color: #c76321;
+}
+
+@media (min-width: 600px) {
+  .search-box {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .search-type {
+    width: 150px;
+  }
+
+  .search-input {
+    flex-grow: 1;
+  }
+
+  .search-button {
+    width: 100px;
+  }
+}
+/* Hide horizontal scrollbar in all browsers */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;             /* Chrome, Safari, Opera */
+}
+/* Add to App.css or a custom CSS file */
+
+.restaurant-detail-page {
+  width: 100%;
+  max-width: 100%;
+}
+
+.restaurant-detail-page .card {
+  border-radius: 12px;
+}
+
+.restaurant-detail-page .bg-dark {
+  background: linear-gradient(to right, #232526, #414345);
+}
+
+.restaurant-detail-page .card-title {
+  font-weight: 600;
+}
