@@ -4,14 +4,15 @@ import img1 from './img/burger.jpeg';
 import img2 from './img/chocolate.jpg';
 import img3 from './img/pizza.jpg';
 import axios from 'axios';
+import Search from './Search'; // Ensure path is correct
 
 const Home = () => {
   const [foods, setFoods] = useState([]);
   const [loading, setLoading] = useState(true);
   const [restaurants, setRestaurants] = useState([]);
   const [foodCategories, setFoodCategories] = useState([]);
-  const [currentPage, setCurrentPage] = useState(0);
-  const itemsPerPage = 6;
+  const [searchResults, setSearchResults] = useState([]);
+  const [isSearching, setIsSearching] = useState(false);
 
   useEffect(() => {
     axios.get('/Foodcollection.json')
@@ -32,6 +33,42 @@ const Home = () => {
       .then(res => setFoodCategories(res.data))
       .catch(err => console.error("Error loading categories:", err));
   }, []);
+
+  const handleSearch = (type, query) => {
+    if (!query) {
+      setIsSearching(false);
+      return;
+    }
+
+    const filtered = restaurants.filter(restaurant => {
+      const name = restaurant.name.toLowerCase();
+      const cuisine = restaurant.cuisine.toLowerCase();
+      const location = restaurant.address?.toLowerCase();
+      const dishList = restaurant.specials?.join(' ').toLowerCase() || '';
+
+      switch (type) {
+        case 'restaurant':
+          return name.includes(query.toLowerCase());
+        case 'cuisine':
+          return cuisine.includes(query.toLowerCase());
+        case 'location':
+          return location?.includes(query.toLowerCase());
+        case 'dish':
+          return dishList.includes(query.toLowerCase());
+        case 'all':
+        default:
+          return (
+            name.includes(query.toLowerCase()) ||
+            cuisine.includes(query.toLowerCase()) ||
+            location?.includes(query.toLowerCase()) ||
+            dishList.includes(query.toLowerCase())
+          );
+      }
+    });
+
+    setSearchResults(filtered);
+    setIsSearching(true);
+  };
 
   return (
     <div className="container-fluid">
@@ -104,25 +141,24 @@ const Home = () => {
       <section className="my-5 px-4">
         <h3 className="text-center fw-bold mb-4">Popular Restaurants</h3>
         <div className="row g-4">
-          {restaurants.map((restaurant, index) => (
+          {(isSearching ? searchResults : restaurants).map((restaurant) => (
             <div key={restaurant.id} className="col-md-6 col-lg-4">
               <Link to={`/restaurant/${restaurant.id}`} className="text-decoration-none text-dark">
                 <div className="card h-100 shadow-sm">
-                       <img
-                             src={restaurant.image}
-                             alt={`Banner of ${restaurant.name}`}
-                             className="img-fluid w-100 rounded mb-4 shadow"
-                             style={{ maxHeight: '500px', objectFit: 'cover' }}
-                           />
+                  <img
+                    src={restaurant.image}
+                    alt={`Banner of ${restaurant.name}`}
+                    className="img-fluid w-100 rounded mb-4 shadow"
+                    style={{ maxHeight: '500px', objectFit: 'cover' }}
+                  />
                   <div className="card-body">
                     <h5 className="card-title">{restaurant.name}</h5>
                     <p className="card-text text-muted mb-1"><strong>Address:</strong> {restaurant.address}</p>
                     <p className="card-text text-muted mb-1"><strong>Cuisine:</strong> {restaurant.cuisine}</p>
                     <p className="card-text text-muted mb-1"><strong>Phone:</strong> {restaurant.phone}</p>
                     <p className="card-text text-muted mb-1">
-                    <strong>Rating:</strong> <i className="fas fa-star text-warning me-1"></i> {restaurant.rating}
+                      <strong>Rating:</strong> <i className="fas fa-star text-warning me-1"></i> {restaurant.rating}
                     </p>
-
                     <p className="card-text text-muted"><strong>Hours:</strong> {restaurant.openingHours}</p>
                   </div>
                 </div>
@@ -130,6 +166,10 @@ const Home = () => {
             </div>
           ))}
         </div>
+
+        {isSearching && searchResults.length === 0 && (
+          <p className="text-center text-muted mt-4">No restaurants match your search.</p>
+        )}
       </section>
     </div>
   );

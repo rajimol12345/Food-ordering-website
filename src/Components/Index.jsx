@@ -34,7 +34,6 @@ const Index = () => {
       <div className="header">
         <div className="logo">EatToWay</div>
         <div className="nav-buttons">
-          <Link to="/Homepage" className="nav-item">Add Restaurant</Link>
           <Link to="/RegisterForm" className="nav-item">Signup</Link>
           <Link to="/LoginForm" className="nav-item">Login</Link>
         </div>

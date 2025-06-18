@@ -9,9 +9,12 @@ const Payment = () => {
   if (!customer || !cartItems) {
     return (
       <div className="container text-center py-5">
-        <h4>Missing order information.</h4>
+        <h4>
+          <i className="fas fa-exclamation-triangle text-warning me-2"></i>
+          Missing order information.
+        </h4>
         <button onClick={() => navigate('/')} className="btn btn-outline-primary mt-3">
-          ← Back to Home
+          <i className="fas fa-arrow-left me-2"></i>Back to Home
         </button>
       </div>
     );
@@ -38,14 +41,17 @@ const Payment = () => {
 
   return (
     <div className="container my-5">
-      <h2 className="mb-4">🧾 Payment</h2>
-      <p><strong>Name:</strong> {customer.name}</p>
-      <p><strong>Address:</strong> {customer.address}</p>
-      <p><strong>Total Amount:</strong> ₹{totalPrice}</p>
+      <h2 className="mb-4">
+        <i className="fas fa-credit-card text-primary me-2"></i>Payment
+      </h2>
+
+      <p><i className="fas fa-user me-2 text-secondary"></i><strong>Name:</strong> {customer.name}</p>
+      <p><i className="fas fa-map-marker-alt me-2 text-secondary"></i><strong>Address:</strong> {customer.address}</p>
+      <p><i className="fas fa-wallet me-2 text-secondary"></i><strong>Total Amount:</strong> ₹{totalPrice}</p>
 
       <div className="text-center mt-4">
-        <button className="btn btn-primary btn-lg" onClick={handlePayment}>
-          💳 Pay ₹{totalPrice}
+        <button className="btn btn-success btn-lg" onClick={handlePayment}>
+          <i className="fas fa-money-bill-wave me-2"></i>Pay ₹{totalPrice}
         </button>
       </div>
     </div>

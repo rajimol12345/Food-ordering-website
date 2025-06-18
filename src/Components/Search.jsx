@@ -5,7 +5,9 @@ const Search = ({ onSearch }) => {
   const [query, setQuery] = useState('');
 
   const handleSearch = () => {
-    onSearch(searchType, query.trim());
+    if (onSearch && typeof onSearch === 'function') {
+      onSearch(searchType, query.trim());
+    }
   };
 
   const handleKeyDown = (e) => {
@@ -15,7 +17,7 @@ const Search = ({ onSearch }) => {
   };
 
   return (
-    <div className="search-box d-flex gap-2">
+    <div className="search-box d-flex gap-2 mt-5">
       <select
         className="form-select"
         value={searchType}

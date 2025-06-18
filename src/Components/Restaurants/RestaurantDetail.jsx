@@ -57,7 +57,7 @@ const RestaurantDetail = () => {
   return (
     <div className="restaurant-detail-page" style={{ padding: '2rem' }}>
       <ToastContainer position="top-right" autoClose={2000} />
-      <Link to="/" className="btn btn-outline-secondary mb-4">
+      <Link to="/Home" className="btn btn-primary">
         <i className="fas fa-arrow-left me-2"></i>Back to Home
       </Link>
 
