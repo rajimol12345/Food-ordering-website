@@ -28,10 +28,10 @@ const Header = () => {
               <Link className="nav-link" to="/Home">Home</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/Menu">Menu</Link>
+              <Link className="nav-link" to="/Cart">Cart</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/Cart">Cart</Link>
+              <Link className="nav-link" to="/SavedItems">Save Items</Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/Order">My Orders</Link>

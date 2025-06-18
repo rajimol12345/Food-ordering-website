@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import img1 from './img/burger.jpeg';
 import img2 from './img/chocolate.jpg';
@@ -10,7 +10,8 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
   const [restaurants, setRestaurants] = useState([]);
   const [foodCategories, setFoodCategories] = useState([]);
-  const scrollRef = useRef(null);
+  const [currentPage, setCurrentPage] = useState(0);
+  const itemsPerPage = 6;
 
   useEffect(() => {
     axios.get('/Foodcollection.json')
@@ -32,71 +33,11 @@ const Home = () => {
       .catch(err => console.error("Error loading categories:", err));
   }, []);
 
-  const scrollLeft = () => {
-    scrollRef.current?.scrollBy({ left: -150, behavior: 'smooth' });
-  };
-
-  const scrollRight = () => {
-    scrollRef.current?.scrollBy({ left: 150, behavior: 'smooth' });
-  };
-
   return (
-    <div className="container-fluid px-0">
-      
-      {/* Food Category Horizontal Scroll */}
-      <h3 className="mt-4 mb-3 text-center">Food Categories</h3>
-      <div className="position-relative mx-3">
-        <button
-          className="btn btn-light shadow position-absolute start-0 top-50 translate-middle-y z-3"
-          onClick={scrollLeft}
-          style={{ borderRadius: '50%' }}
-        >
-          &#8592;
-        </button>
-
-        <div
-          ref={scrollRef}
-          className="scrollbar-hide"
-          style={{
-            display: 'flex',
-            overflowX: 'auto',
-            whiteSpace: 'nowrap',
-            gap: '16px',
-            padding: '10px 20px',
-            margin: '20px 0',
-            scrollBehavior: 'smooth',
-          }}
-        >
-          {foodCategories.map((item, index) => (
-            <div key={index} style={{ flex: '0 0 auto', minWidth: '120px', textAlign: 'center' }}>
-              <img
-                src={item.image}
-                alt={item.name}
-                style={{
-                  width: '100px',
-                  height: '100px',
-                  objectFit: 'cover',
-                  borderRadius: '50%',
-                  marginBottom: '8px',
-                  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-                }}
-              />
-              <div style={{ fontSize: '14px', fontWeight: 500 }}>{item.name}</div>
-            </div>
-          ))}
-        </div>
-
-        <button
-          className="btn btn-light shadow position-absolute end-0 top-50 translate-middle-y z-3"
-          onClick={scrollRight}
-          style={{ borderRadius: '50%' }}
-        >
-          &#8594;
-        </button>
-      </div>
+    <div className="container-fluid">
 
       {/* Carousel Section */}
-      <div className="row">
+      <div className="row mt-5">
         <div className="col-12">
           <div id="foodCarousel" className="carousel slide" data-bs-ride="carousel">
             <div className="carousel-inner">
@@ -167,17 +108,21 @@ const Home = () => {
             <div key={restaurant.id} className="col-md-6 col-lg-4">
               <Link to={`/restaurant/${restaurant.id}`} className="text-decoration-none text-dark">
                 <div className="card h-100 shadow-sm">
-                  <img
-                    src={`https://source.unsplash.com/400x300/?restaurant,food&sig=${index}`}
-                    className="card-img-top"
-                    alt={restaurant.name}
-                  />
+                       <img
+                             src={restaurant.image}
+                             alt={`Banner of ${restaurant.name}`}
+                             className="img-fluid w-100 rounded mb-4 shadow"
+                             style={{ maxHeight: '500px', objectFit: 'cover' }}
+                           />
                   <div className="card-body">
                     <h5 className="card-title">{restaurant.name}</h5>
                     <p className="card-text text-muted mb-1"><strong>Address:</strong> {restaurant.address}</p>
                     <p className="card-text text-muted mb-1"><strong>Cuisine:</strong> {restaurant.cuisine}</p>
                     <p className="card-text text-muted mb-1"><strong>Phone:</strong> {restaurant.phone}</p>
-                    <p className="card-text text-muted mb-1"><strong>Rating:</strong> ⭐ {restaurant.rating}</p>
+                    <p className="card-text text-muted mb-1">
+                    <strong>Rating:</strong> <i className="fas fa-star text-warning me-1"></i> {restaurant.rating}
+                    </p>
+
                     <p className="card-text text-muted"><strong>Hours:</strong> {restaurant.openingHours}</p>
                   </div>
                 </div>

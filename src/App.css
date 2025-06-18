@@ -577,3 +577,11 @@ body {
 .restaurant-detail-page .card-title {
   font-weight: 600;
 }
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
