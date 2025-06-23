@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import '@fortawesome/fontawesome-free/css/all.min.css';
-
 // Component imports
 import Header from './Components/Header';
 import RegisterForm from './Components/RegisterForm';
@@ -11,7 +10,6 @@ import Home from './Components/Home';
 import Footer from './Components/Footer';
 import Cart from './Components/Cart';
 import Orders from './Components/Order';
-import Profile from './Components/Profile';
 import Logout from './Components/Logout';
 import Index from './Components/Index';
 import Sidebar from './Components/Restaurants/Sidebar';
@@ -21,14 +19,11 @@ import Payment from './Components/Payment';
 import Homepage from './Components/Restaurants/Homepage';
 import RestaurantRegistration from './Components/Restaurants/RestaurantRegistration'; 
 import RestaurantLogin from './Components/Restaurants/RestaurantLogin';
-import DashboardOverview from './Components/Restaurants/DashboardOverview';
 import RestaurantList from './Components/Restaurants/RestaurantList';
-import OrdersDashboard from './Components/Restaurants/OrdersDashboard';
-import UserInfo from './Components/Restaurants/UserInfo';
-import Promotions from './Components/Restaurants/Promotions';
 import SavedItems from './Components/SavedItems';
 import Search from './Components/Search'; 
 import SearchResults from './Components/SearchResults';
+import Dashboard from './Components/Admin/Dashboard';
 
 function App() {
   const location = useLocation();
@@ -41,7 +36,7 @@ function App() {
     '/Homepage',
     '/RestaurantRegistration',
     '/RestaurantLogin',
-    '/DashboardOverview',
+    '/Dashboard',
     '/Orders',
     '/Userinfo',
     '/Promotions'
@@ -57,7 +52,7 @@ function App() {
     '/Homepage',
     '/RestaurantRegistration',
     '/RestaurantLogin',
-    '/DashboardOverview'
+    '/Dashboard'
   ];
   const shouldHideFooter = hideFooterOnRoutes.includes(location.pathname);
 
@@ -68,7 +63,7 @@ function App() {
     '/RegisterForm',
     '/Homepage',
     '/RestaurantLogin',
-    '/DashboardOverview',
+    '/Dashboard',
     '/Orders',
     '/Userinfo',
     '/Promotions'
@@ -104,7 +99,6 @@ function App() {
             <Route path="/restaurant/:id" element={<RestaurantDetail />} />
             <Route path="/Cart" element={<Cart />} />
             <Route path="/Order" element={<Orders />} />
-            <Route path="/Profile" element={<Profile />} />
             <Route path="/SavedItems" element={<SavedItems />} />
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/payment" element={<Payment />} />
@@ -117,15 +111,10 @@ function App() {
             <Route path="/RestaurantRegistration" element={<RestaurantRegistration />} />
             <Route path="/RestaurantLogin" element={<RestaurantLogin />} />
             <Route path="/RestaurantList" element={<RestaurantList />} />
-            <Route path="/DashboardOverview" element={<DashboardOverview />} />
-            <Route path="/Orders" element={<OrdersDashboard />} />
-            <Route path="/Userinfo" element={<UserInfo />} />
-            <Route path="/Promotions" element={<Promotions />} />
-
+             <Route path="/Dashboard" element={<Dashboard/>} />
             {/* Fallback Route */}
-            <Route path="*" element={<Navigate to="/" replace />} />
+           <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
-
           {/* Footer */}
           {!shouldHideFooter && <Footer />}
         </div>

@@ -10,8 +10,7 @@ import {
   FaBars,
   FaUserCircle
 } from 'react-icons/fa';
-import { NavLink } from 'react-router-dom'; // Add this line
-
+import { NavLink } from 'react-router-dom'; 
 
 const Sidebar = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -28,46 +27,53 @@ const Sidebar = () => {
           <FaBars />
         </button>
       </div>
-
       <ul className="nav-links">
         <li>
-          <NavLink to="/" className="nav-link">
-            <FaHome /><span>{!isCollapsed && 'Dashboard'}</span>
+          <NavLink to="/Dashboard" className="nav-link">
+            <FaHome />
+            <span>{!isCollapsed && 'Dashboard'}</span>
           </NavLink>
         </li>
         <li>
-          <NavLink to="/Userinfo" className="nav-link">
-            <FaUserCircle /><span>{!isCollapsed && 'User Info'}</span>
+          <NavLink to="/DashboardOverview/Userinfo" className="nav-link">
+            <FaUserCircle />
+            <span>{!isCollapsed && 'User Info'}</span>
           </NavLink>
         </li>
         <li>
-          <NavLink to="/orders" className="nav-link">
-            <FaListAlt /><span>{!isCollapsed && 'Orders'}</span>
+          <NavLink to="/DashboardOverview/orders" className="nav-link">
+            <FaListAlt />
+            <span>{!isCollapsed && 'Orders'}</span>
           </NavLink>
         </li>
         <li>
-          <NavLink to="/menu" className="nav-link">
-            <FaUtensils /><span>{!isCollapsed && 'Menu'}</span>
+          <NavLink to="/DashboardOverview/menu" className="nav-link">
+            <FaUtensils />
+            <span>{!isCollapsed && 'Menu'}</span>
           </NavLink>
         </li>
         <li>
-          <NavLink to="/Promotions" className="nav-link">
-            <FaTags /><span>{!isCollapsed && 'Promotions'}</span>
+          <NavLink to="/DashboardOverview/Promotions" className="nav-link">
+            <FaTags />
+            <span>{!isCollapsed && 'Promotions'}</span>
           </NavLink>
         </li>
         <li>
-          <NavLink to="/analytics" className="nav-link">
-            <FaChartBar /><span>{!isCollapsed && 'Analytics'}</span>
+          <NavLink to="/DashboardOverview/analytics" className="nav-link">
+            <FaChartBar />
+            <span>{!isCollapsed && 'Analytics'}</span>
           </NavLink>
         </li>
         <li>
-          <NavLink to="/settings" className="nav-link">
-            <FaCog /><span>{!isCollapsed && 'Settings'}</span>
+          <NavLink to="/DashboardOverview/settings" className="nav-link">
+            <FaCog />
+            <span>{!isCollapsed && 'Settings'}</span>
           </NavLink>
         </li>
         <li className="logout">
-          <NavLink to="/logout" className="nav-link">
-            <FaSignOutAlt /><span>{!isCollapsed && 'Logout'}</span>
+          <NavLink to="/Logout" className="nav-link">
+            <FaSignOutAlt />
+            <span>{!isCollapsed && 'Logout'}</span>
           </NavLink>
         </li>
       </ul>

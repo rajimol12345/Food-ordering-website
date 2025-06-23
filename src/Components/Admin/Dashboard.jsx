@@ -5,7 +5,7 @@ import {
 } from 'recharts';
 
 
-const DashboardOverview = () => {
+const Dashboard = () => {
   // Sample data
   const orderTrends = [
     { day: 'Mon', orders: 40 },
@@ -88,4 +88,4 @@ const DashboardOverview = () => {
   );
 };
 
-export default DashboardOverview;
+export default Dashboard;

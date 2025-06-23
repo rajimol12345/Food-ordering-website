@@ -40,7 +40,7 @@ const Search = ({ onSearch }) => {
         onKeyDown={handleKeyDown}
       />
 
-      <button className="btn btn-primary" onClick={handleSearch}>
+      <button className="btn btn-danger" onClick={handleSearch}>
         Search
       </button>
     </div>

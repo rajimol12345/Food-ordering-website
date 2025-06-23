@@ -6,12 +6,24 @@ const Cart = () => {
   const navigate = useNavigate();
 
   const [cartItems, setCartItems] = useState(
-    location.state?.item ? [location.state.item] : []
+    location.state?.item
+      ? [{ ...location.state.item, quantity: 1 }]
+      : []
   );
 
   const handleRemove = (index) => {
     const updated = [...cartItems];
     updated.splice(index, 1);
+    setCartItems(updated);
+  };
+
+  const handleQuantityChange = (index, delta) => {
+    const updated = [...cartItems];
+    const currentQty = updated[index].quantity;
+
+    if (currentQty === 1 && delta === -1) return;
+
+    updated[index].quantity += delta;
     setCartItems(updated);
   };
 
@@ -23,8 +35,10 @@ const Cart = () => {
   if (cartItems.length === 0) {
     return (
       <div className="p-5 text-center">
-        <h4><i className="fas fa-shopping-cart text-muted me-2"></i>Your cart is empty</h4>
-        <Link to="/" className="btn btn-outline-primary mt-3">
+        <h4>
+          <i className="fas fa-shopping-cart text-muted me-2"></i>Your cart is empty
+        </h4>
+        <Link to="/Home" className="btn btn-outline-primary mt-3">
           <i className="fas fa-arrow-left me-2"></i>Back to Home
         </Link>
       </div>
@@ -38,29 +52,52 @@ const Cart = () => {
       </h2>
 
       {cartItems.map((item, index) => (
-        <div key={index} className="card mb-3 shadow-sm">
-          <div className="row g-0">
-            <div className="col-md-4">
+        <div key={index} className="card mb-4 shadow-sm">
+          <div className="row g-0 align-items-center">
+            {/* Product Image */}
+            <div className="col-sm-3 p-3">
               <img
-                src={item.image}
-                alt={item.name}
-                className="img-fluid rounded-start"
-                style={{ height: '100%', objectFit: 'cover' }}
+              src={item.image}
+              alt={item.name}
+              className="img-fluid rounded"
+              style={{ height: '150px', width: '200%', objectFit: 'cover' }}
               />
             </div>
-            <div className="col-md-8 d-flex flex-column justify-content-center p-3">
-              <h5 className="card-title">{item.name}</h5>
-              <p className="card-text text-muted small">{item.description}</p>
-              <h6 className="text-success fw-bold">₹ {item.price}</h6>
 
-              <div className="mt-3">
+            {/* Product Details */}
+            <div className="col-sm-6 p-3">
+              <h5 className="mb-1">{item.name}</h5>
+              <p className="text-muted small mb-2">{item.description}</p>
+              <h6 className="text-success fw-bold mb-0">₹ {item.price}</h6>
+              <p className="text-muted small mt-1">
+                Subtotal: ₹ {item.price * item.quantity}
+              </p>
+            </div>
+
+            {/* Quantity & Remove */}
+            <div className="col-sm-3 d-flex flex-column align-items-end justify-content-center p-3">
+              <div className="d-flex align-items-center mb-3">
                 <button
-                  className="btn btn-outline-danger"
-                  onClick={() => handleRemove(index)}
+                  className="btn btn-sm btn-outline-secondary"
+                  onClick={() => handleQuantityChange(index, -1)}
                 >
-                  <i className="fas fa-trash-alt me-2"></i>Remove
+                  −
+                </button>
+                <span className="mx-2 fw-bold">{item.quantity}</span>
+                <button
+                  className="btn btn-sm btn-outline-secondary"
+                  onClick={() => handleQuantityChange(index, 1)}
+                >
+                  +
                 </button>
               </div>
+
+              <button
+                className="btn btn-sm btn-outline-danger"
+                onClick={() => handleRemove(index)}
+              >
+                <i className="fas fa-trash-alt me-1"></i>Remove
+              </button>
             </div>
           </div>
         </div>
@@ -69,7 +106,11 @@ const Cart = () => {
       {/* Total & Checkout */}
       <div className="text-end mt-4">
         <h5 className="mb-3 fw-bold">
-          Total: ₹ {cartItems.reduce((acc, item) => acc + item.price, 0)}
+          Total: ₹{' '}
+          {cartItems.reduce(
+            (acc, item) => acc + item.price * item.quantity,
+            0
+          )}
         </h5>
         <button
           className="btn btn-primary btn-lg"

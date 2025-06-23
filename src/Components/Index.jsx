@@ -5,7 +5,6 @@ const heroStyle = {
   backgroundImage: `url(${bgImage})`,
   backgroundSize: 'cover',
   width:'100%',
-  backgroundPosition: 'center',
   color: 'black',
   textAlign: 'center',
   padding: '200px 20px',
