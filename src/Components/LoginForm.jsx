@@ -1,7 +1,9 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
-import './login.css'
+import axios from 'axios';
+import './login.css';
+
 export default function LoginForm() {
   const navigate = useNavigate();
 
@@ -12,16 +14,24 @@ export default function LoginForm() {
     reset,
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log('Login Data:', data);
-    alert('Login successful!');
-    reset();
-    navigate('/Home');
+  const onSubmit = async (data) => {
+    try {
+      await axios.post('http://localhost:5000/food-ordering-app/api/user/login', {
+        email: data.email,
+        password: data.password,
+      });
+
+      alert('Login successful!');
+      reset();
+      navigate('/Home');
+    } catch (error) {
+      console.error('Login error:', error);
+      alert(error.response?.data?.error || 'Login failed. Please try again.');
+    }
   };
 
   return (
     <div className="container">
-
       <form className="form-box" onSubmit={handleSubmit(onSubmit)} noValidate>
         <h1>User Login</h1>
 
@@ -30,6 +40,7 @@ export default function LoginForm() {
             <input
               type="email"
               placeholder="Email"
+              autoComplete="email"
               {...register('email', {
                 required: 'Email is required',
                 pattern: {
@@ -45,6 +56,7 @@ export default function LoginForm() {
             <input
               type="password"
               placeholder="Password"
+              autoComplete="current-password"
               {...register('password', {
                 required: 'Password is required',
                 minLength: {

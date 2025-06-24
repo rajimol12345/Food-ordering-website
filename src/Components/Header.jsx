@@ -46,7 +46,7 @@ const Header = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/Home">
+              <Link className="nav-link" to="/Accounts">
                 <i className="fas fa-user me-1"></i>Account
               </Link>
             </li>

@@ -24,7 +24,8 @@ import SavedItems from './Components/SavedItems';
 import Search from './Components/Search'; 
 import SearchResults from './Components/SearchResults';
 import Dashboard from './Components/Admin/Dashboard';
-
+import Accounts from './Components/Accounts';
+import EditProfile from './Components/EditProfile';
 function App() {
   const location = useLocation();
 
@@ -100,10 +101,11 @@ function App() {
             <Route path="/Cart" element={<Cart />} />
             <Route path="/Order" element={<Orders />} />
             <Route path="/SavedItems" element={<SavedItems />} />
+            <Route path="/Accounts" element={<Accounts />} />
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/payment" element={<Payment />} />
              <Route path="/SearchResults" element={<SearchResults />} />
-
+              <Route path="/EditProfile" element={<EditProfile />} />
             <Route path="/Logout" element={<Logout />} />
 
             {/* Restaurant Module Routes */}

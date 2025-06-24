@@ -1,12 +1,12 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-import './login.css';
+import { useNavigate, Link } from 'react-router-dom';
+import axios from 'axios';
+import './login.css'; // Your CSS file
 
 export default function RegisterForm() {
   const navigate = useNavigate();
-  
+
   const {
     register,
     handleSubmit,
@@ -15,14 +15,27 @@ export default function RegisterForm() {
     reset,
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log('Form submitted:', data);
-    alert('Registration successful!');
-    reset(); // Clear form
-    navigate('/LoginForm');
-  };
-
   const password = watch('password');
+
+  const onSubmit = async (data) => {
+    try {
+      await axios.post('http://localhost:5000/food-ordering-app/api/user/register', {
+        fullname: data.fullname,
+        email: data.email,
+        password: data.password,
+        confirmPassword: data.confirm_password,
+        phone: data.phone,
+      });
+
+      alert('Registration successful!');
+      reset();
+      navigate('/LoginForm');
+    } catch (error) {
+      console.error('Registration error:', error);
+      const msg = error?.response?.data?.error || 'Something went wrong.';
+      alert(msg);
+    }
+  };
 
   return (
     <div className="container">
@@ -34,11 +47,12 @@ export default function RegisterForm() {
             <input
               type="text"
               placeholder="Full Name"
+              autoComplete="name"
               {...register('fullname', {
                 required: 'Full name is required',
                 pattern: {
                   value: /^[a-zA-Z]+(?: [a-zA-Z]+)+$/,
-                  message: 'Enter at least first and last name (letters only)',
+                  message: 'Enter at least first and last name',
                 },
               })}
             />
@@ -49,6 +63,7 @@ export default function RegisterForm() {
             <input
               type="email"
               placeholder="Email"
+              autoComplete="email"
               {...register('email', {
                 required: 'Email is required',
                 pattern: {
@@ -64,6 +79,7 @@ export default function RegisterForm() {
             <input
               type="text"
               placeholder="Phone Number"
+              autoComplete="tel"
               {...register('phone', {
                 required: 'Phone number is required',
                 pattern: {
@@ -79,6 +95,7 @@ export default function RegisterForm() {
             <input
               type="password"
               placeholder="Password"
+              autoComplete="new-password"
               {...register('password', {
                 required: 'Password is required',
                 minLength: {
@@ -94,6 +111,7 @@ export default function RegisterForm() {
             <input
               type="password"
               placeholder="Confirm Password"
+              autoComplete="new-password"
               {...register('confirm_password', {
                 required: 'Please confirm your password',
                 validate: value => value === password || 'Passwords do not match',
