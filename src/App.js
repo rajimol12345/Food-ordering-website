@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import '@fortawesome/fontawesome-free/css/all.min.css';
+
 // Component imports
 import Header from './Components/Header';
 import RegisterForm from './Components/RegisterForm';
@@ -12,63 +13,28 @@ import Cart from './Components/Cart';
 import Orders from './Components/Order';
 import Logout from './Components/Logout';
 import Index from './Components/Index';
-import Sidebar from './Components/Restaurants/Sidebar';
-import RestaurantDetail from './Components/Restaurants/RestaurantDetail';
+import RestaurantDetail from './Components/RestaurantDetail';
 import Checkout from './Components/Checkout';
 import Payment from './Components/Payment';
-import Homepage from './Components/Restaurants/Homepage';
-import RestaurantRegistration from './Components/Restaurants/RestaurantRegistration'; 
-import RestaurantLogin from './Components/Restaurants/RestaurantLogin';
-import RestaurantList from './Components/Restaurants/RestaurantList';
+import RestaurantList from './Components/RestaurantList';
 import SavedItems from './Components/SavedItems';
 import Search from './Components/Search'; 
-import SearchResults from './Components/SearchResults';
-import Dashboard from './Components/Admin/Dashboard';
 import Accounts from './Components/Accounts';
 import EditProfile from './Components/EditProfile';
+// Admin
+import Adminlogin from './Components/Admin/Adminlogin';
+import AdminRegister from './Components/Admin/AdminRegisteration';
+import AdminDashboard from './Components/Admin/AdminDashboard';
 function App() {
   const location = useLocation();
 
   // Routes where Header should be hidden
-  const hideHeaderOnRoutes = [
-    '/',
-    '/LoginForm',
-    '/RegisterForm',
-    '/Homepage',
-    '/RestaurantRegistration',
-    '/RestaurantLogin',
-    '/Dashboard',
-    '/Orders',
-    '/Userinfo',
-    '/Promotions'
-  ];
+  const hideHeaderOnRoutes = ['/', '/LoginForm', '/RegisterForm','/admin/login','/admin/register','/admin/dashboard'];
+  const hideFooterOnRoutes = ['/admin/login','/admin/register','/admin/dashboard'];
+  const hideSearchOnRoutes = ['/', '/LoginForm', '/RegisterForm','/admin/login','/admin/register','/admin/dashboard'];
+
   const shouldHideHeader = hideHeaderOnRoutes.includes(location.pathname);
-
-  // Routes where Sidebar should be shown
-  const showSidebarOnRoutes = ['/DashboardOverview'];
-  const shouldShowSidebar = showSidebarOnRoutes.includes(location.pathname);
-
-  // Routes where Footer should be hidden
-  const hideFooterOnRoutes = [
-    '/Homepage',
-    '/RestaurantRegistration',
-    '/RestaurantLogin',
-    '/Dashboard'
-  ];
   const shouldHideFooter = hideFooterOnRoutes.includes(location.pathname);
-
-  // Routes where Search should be hidden
-  const hideSearchOnRoutes = [
-    '/',
-    '/LoginForm',
-    '/RegisterForm',
-    '/Homepage',
-    '/RestaurantLogin',
-    '/Dashboard',
-    '/Orders',
-    '/Userinfo',
-    '/Promotions'
-  ];
   const shouldHideSearch = hideSearchOnRoutes.includes(location.pathname);
 
   return (
@@ -76,50 +42,36 @@ function App() {
       {/* Header */}
       {!shouldHideHeader && <Header />}
 
-      {/* Search shown on all pages except excluded routes */}
+      {/* Search */}
       {!shouldHideSearch && <Search />}
 
-      <div style={{ display: 'flex' }}>
-        {/* Sidebar */}
-        {shouldShowSidebar && <Sidebar />}
+      <div style={{ padding: '20px' }}>
+        {/* Routes */}
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="/LoginForm" element={<LoginForm />} />
+          <Route path="/RegisterForm" element={<RegisterForm />} />
+          <Route path="/Home" element={<Home />} />
+          <Route path="/restaurant/:id" element={<RestaurantDetail />} />
+          <Route path="/Cart" element={<Cart />} />
+          <Route path="/Order" element={<Orders />} />
+          <Route path="/SavedItems" element={<SavedItems />} />
+          <Route path="/Accounts" element={<Accounts />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/payment" element={<Payment />} />
+          <Route path="/EditProfile" element={<EditProfile />} />
+          <Route path="/Logout" element={<Logout />} />
+          <Route path="/RestaurantList" element={<RestaurantList />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+          {/* Admin */}
+          <Route path="/admin/login" element={<Adminlogin />} />
+          <Route path="/admin/register" element={<AdminRegister />} />
+          <Route path="/admin/dashboard" element={<AdminDashboard />} />
+        </Routes>
+            
 
-        <div
-          style={{
-            marginLeft: shouldShowSidebar ? '220px' : '0',
-            padding: '20px',
-            flex: 1,
-          }}
-        >
-          {/* Routes */}
-          <Routes>
-            {/* Public Routes */}
-            <Route path="/" element={<Index />} />
-            <Route path="/LoginForm" element={<LoginForm />} />
-            <Route path="/RegisterForm" element={<RegisterForm />} />
-            <Route path="/Home" element={<Home />} />
-            <Route path="/restaurant/:id" element={<RestaurantDetail />} />
-            <Route path="/Cart" element={<Cart />} />
-            <Route path="/Order" element={<Orders />} />
-            <Route path="/SavedItems" element={<SavedItems />} />
-            <Route path="/Accounts" element={<Accounts />} />
-            <Route path="/checkout" element={<Checkout />} />
-            <Route path="/payment" element={<Payment />} />
-             <Route path="/SearchResults" element={<SearchResults />} />
-              <Route path="/EditProfile" element={<EditProfile />} />
-            <Route path="/Logout" element={<Logout />} />
-
-            {/* Restaurant Module Routes */}
-            <Route path="/Homepage" element={<Homepage />} />
-            <Route path="/RestaurantRegistration" element={<RestaurantRegistration />} />
-            <Route path="/RestaurantLogin" element={<RestaurantLogin />} />
-            <Route path="/RestaurantList" element={<RestaurantList />} />
-             <Route path="/Dashboard" element={<Dashboard/>} />
-            {/* Fallback Route */}
-           <Route path="*" element={<Navigate to="/" replace />} />
-          </Routes>
-          {/* Footer */}
-          {!shouldHideFooter && <Footer />}
-        </div>
+        {/* Footer */}
+        {!shouldHideFooter && <Footer />}
       </div>
     </div>
   );
