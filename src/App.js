@@ -25,13 +25,15 @@ import EditProfile from './Components/EditProfile';
 import Adminlogin from './Components/Admin/Adminlogin';
 import AdminRegister from './Components/Admin/AdminRegisteration';
 import AdminDashboard from './Components/Admin/AdminDashboard';
+import AdminLayout from './Components/Admin/AdminLayout';
+import Overview from './Components/Admin/Overview';
 function App() {
   const location = useLocation();
 
   // Routes where Header should be hidden
-  const hideHeaderOnRoutes = ['/', '/LoginForm', '/RegisterForm','/admin/login','/admin/register','/admin/dashboard'];
-  const hideFooterOnRoutes = ['/admin/login','/admin/register','/admin/dashboard'];
-  const hideSearchOnRoutes = ['/', '/LoginForm', '/RegisterForm','/admin/login','/admin/register','/admin/dashboard'];
+  const hideHeaderOnRoutes = ['/', '/LoginForm', '/RegisterForm','/admin/login','/admin/register','/admin/dashboard','/admin','/admin/overview'];
+  const hideFooterOnRoutes = ['/admin/login','/admin/register','/admin/dashboard','/admin','/admin/overview'];
+  const hideSearchOnRoutes = ['/', '/LoginForm', '/RegisterForm','/admin/login','/admin/register','/admin/dashboard','/admin','/admin/overview'];
 
   const shouldHideHeader = hideHeaderOnRoutes.includes(location.pathname);
   const shouldHideFooter = hideFooterOnRoutes.includes(location.pathname);
@@ -48,27 +50,37 @@ function App() {
       <div style={{ padding: '20px' }}>
         {/* Routes */}
         <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/LoginForm" element={<LoginForm />} />
-          <Route path="/RegisterForm" element={<RegisterForm />} />
-          <Route path="/Home" element={<Home />} />
-          <Route path="/restaurant/:id" element={<RestaurantDetail />} />
-          <Route path="/Cart" element={<Cart />} />
-          <Route path="/Order" element={<Orders />} />
-          <Route path="/SavedItems" element={<SavedItems />} />
-          <Route path="/Accounts" element={<Accounts />} />
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="/payment" element={<Payment />} />
-          <Route path="/EditProfile" element={<EditProfile />} />
-          <Route path="/Logout" element={<Logout />} />
-          <Route path="/RestaurantList" element={<RestaurantList />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
-          {/* Admin */}
-          <Route path="/admin/login" element={<Adminlogin />} />
-          <Route path="/admin/register" element={<AdminRegister />} />
-          <Route path="/admin/dashboard" element={<AdminDashboard />} />
-        </Routes>
-            
+  {/* Public Routes */}
+  <Route path="/" element={<Index />} />
+  <Route path="/LoginForm" element={<LoginForm />} />
+  <Route path="/RegisterForm" element={<RegisterForm />} />
+  <Route path="/Home" element={<Home />} />
+  <Route path="/restaurant/:id" element={<RestaurantDetail />} />
+  <Route path="/Cart" element={<Cart />} />
+  <Route path="/Order" element={<Orders />} />
+  <Route path="/SavedItems" element={<SavedItems />} />
+  <Route path="/Accounts" element={<Accounts />} />
+  <Route path="/checkout" element={<Checkout />} />
+  <Route path="/payment" element={<Payment />} />
+  <Route path="/EditProfile" element={<EditProfile />} />
+  <Route path="/Logout" element={<Logout />} />
+  <Route path="/RestaurantList" element={<RestaurantList />} />
+  <Route path="*" element={<Navigate to="/" replace />} />
+
+  {/* Admin Auth (No Layout) */}
+  <Route path="/admin/login" element={<Adminlogin />} />
+  <Route path="/admin/register" element={<AdminRegister />} />
+
+  {/* Admin Routes (With AdminLayout) */}
+  <Route path="/admin" element={<AdminLayout />}>
+    <Route path="/admin/dashboard" element={<AdminDashboard />} />
+    <Route path="/admin/overview" element={<Overview />} />
+    {/* You can add more nested admin routes here, e.g.: */}
+    {/* <Route path="orders" element={<AdminOrders />} /> */}
+    {/* <Route path="restaurants" element={<AdminRestaurants />} /> */}
+  </Route>
+</Routes>
+
 
         {/* Footer */}
         {!shouldHideFooter && <Footer />}

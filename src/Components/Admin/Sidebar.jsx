@@ -1,62 +1,100 @@
-import React, { useState } from 'react';
+// Sidebar.jsx
+import React from 'react';
 import { Link } from 'react-router-dom';
-import '../Admin/Admin.css';
-const Sidebar = () => {
-  const [collapsed, setCollapsed] = useState(false);
+import './Admin.css';
 
-  const toggleSidebar = () => {
-    setCollapsed(!collapsed);
-  };
-
+const Sidebar = ({ isOpen }) => {
   return (
-    <div className={`sidebar ${collapsed ? 'collapsed' : ''}`}>
+    <aside className={`sidebar ${isOpen ? 'open' : 'closed'}`}>
       <div className="sidebar-header">
-        <span className="sidebar-logo">Admin</span>
-        <button className="toggle-btn" onClick={toggleSidebar}>
-          ☰
-        </button>
+        <img src="/images/logo.png" alt="logo" />
+        {isOpen && <h2>Dashboard</h2>}
       </div>
 
-      <ul className="nav-links">
+      <ul className="sidebar-links">
+        <h4><span>Menu</span><div className="menu-separator"></div></h4>
         <li>
-          <Link to="/admin/dashboard">
-            <i className="material-icons">dashboard</i>
-            <span>Dashboard</span>
+          <Link to="/admin/dashboard" data-tooltip="Dashboard">
+            <span className="material-symbols-outlined large-icon">dashboard</span>
+            {isOpen && 'Dashboard'}
           </Link>
         </li>
         <li>
-          <Link to="/admin/restaurants">
-            <i className="material-icons">restaurant</i>
-            <span>Restaurants</span>
+          <Link to="/admin/overview" data-tooltip="Overview">
+            <span className="material-symbols-outlined large-icon">view_compact_alt</span>
+            {isOpen && 'Overview'}
           </Link>
         </li>
         <li>
-          <Link to="/admin/orders">
-            <i className="material-icons">receipt</i>
-            <span>Orders</span>
+          <Link to="/admin/analytics" data-tooltip="Analytics">
+            <span className="material-symbols-outlined large-icon">monitoring</span>
+            {isOpen && 'Analytics'}
+          </Link>
+        </li>
+
+        <h4><span>Restaurants</span><div className="menu-separator"></div></h4>
+        <li>
+          <Link to="/admin/projects" data-tooltip="All Restaurants">
+            <span className="material-symbols-outlined large-icon">restaurant</span>
+            {isOpen && 'All Restaurants'}
           </Link>
         </li>
         <li>
-          <Link to="/admin/users">
-            <i className="material-icons">group</i>
-            <span>Users</span>
+          <Link to="/admin/groups" data-tooltip="Add Menu">
+            <span className="material-symbols-outlined large-icon">add_business</span>
+            {isOpen && 'Add Menu'}
+          </Link>
+        </li>
+
+        <h4><span>Orders</span><div className="menu-separator"></div></h4>
+        <li>
+          <Link to="/admin/orders" data-tooltip="All Orders">
+            <span className="material-symbols-outlined large-icon">receipt_long</span>
+            {isOpen && 'All Orders'}
           </Link>
         </li>
         <li>
-          <Link to="/admin/promotions">
-            <i className="material-icons">local_offer</i>
-            <span>Promotions</span>
+          <Link to="/admin/active-orders" data-tooltip="Active Orders">
+            <span className="material-symbols-outlined large-icon">local_shipping</span>
+            {isOpen && 'Active Orders'}
+          </Link>
+        </li>
+
+        <h4><span>Settings</span><div className="menu-separator"></div></h4>
+        <li>
+          <Link to="/admin/settings" data-tooltip="Settings">
+            <span className="material-symbols-outlined large-icon">settings</span>
+            {isOpen && 'Settings'}
+          </Link>
+        </li>
+
+        <h4><span>Account</span><div className="menu-separator"></div></h4>
+        <li>
+          <Link to="/admin/profile" data-tooltip="Profile">
+            <span className="material-symbols-outlined large-icon">account_circle</span>
+            {isOpen && 'Profile'}
+          </Link>
+        </li>
+        <li>
+          <Link to="/logout" data-tooltip="Logout">
+            <span className="material-symbols-outlined large-icon">logout</span>
+            {isOpen && 'Logout'}
           </Link>
         </li>
       </ul>
 
-      <div className="nav-links logout">
-        <Link to="/logout">
-          <i className="material-icons">logout</i>
-          <span>Logout</span>
-        </Link>
+      <div className="user-account">
+        <div className="user-profile">
+          <img src="/images/profile-img.jpg" alt="Profile" />
+          {isOpen && (
+            <div className="user-detail">
+              <h3>Admin Name</h3>
+              <span>Web Developer</span>
+            </div>
+          )}
+        </div>
       </div>
-    </div>
+    </aside>
   );
 };
 
