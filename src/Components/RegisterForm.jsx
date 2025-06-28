@@ -22,8 +22,7 @@ export default function RegisterForm() {
       await axios.post('http://localhost:5000/food-ordering-app/api/user/register', {
         fullname: data.fullname,
         email: data.email,
-        password: data.password,
-        confirmPassword: data.confirm_password,
+        password:btoa( data.password),
         phone: data.phone,
       });
 

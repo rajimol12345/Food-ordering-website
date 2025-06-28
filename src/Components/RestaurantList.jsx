@@ -16,7 +16,7 @@ function RestaurantList() {
     <div className="container py-5">
       <h1 className="mb-4"><i className="fas fa-utensils me-2"></i>Top Restaurants</h1>
 
-      <div className="row g-4">
+      <div className="row g-5">
         {restaurants.map((restaurant) => (
           <div key={restaurant.id} className="col-md-4">
             <Link to={`/restaurant/${restaurant.id}`} className="text-decoration-none text-dark">

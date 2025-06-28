@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
-import '@fortawesome/fontawesome-free/css/all.min.css';
 
 // Component imports
 import Header from './Components/Header';

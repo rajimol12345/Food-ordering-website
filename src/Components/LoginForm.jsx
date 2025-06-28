@@ -13,14 +13,16 @@ export default function LoginForm() {
     formState: { errors },
     reset,
   } = useForm();
-
   const onSubmit = async (data) => {
     try {
-      await axios.post('http://localhost:5000/food-ordering-app/api/user/login', {
+      const response = await axios.post('http://localhost:5000/food-ordering-app/api/user/login', {
         email: data.email,
-        password: data.password,
+        password: btoa(data.password),
       });
 
+      const user = response.data;
+      let userID = user.token;
+      document.cookie = "token="+userID+"; max-age=3600; path=/";
       alert('Login successful!');
       reset();
       navigate('/Home');
