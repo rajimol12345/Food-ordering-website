@@ -1,20 +1,24 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-
 export default function Logout() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    document.cookie = "token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+    // Check if token exists
+    const tokenMatch = document.cookie.match(/token=([^;]+)/);
 
-    alert("You have been logged out.");
-    navigate('/LoginForm'); 
+    if (tokenMatch) {
+      // Delete the token cookie by setting it to expire in the past
+      document.cookie = 'token=; path=/; age=0;';
+      alert('You have been logged out.');
+    } else {
+      alert('You are not logged in.');
+    }
+
+    // Redirect to login
+    navigate('/LoginForm');
   }, [navigate]);
 
-  return (
-    <div className="logout-page">
-      <p>Logging you out...</p>
-    </div>
-  );
+  return null;
 }

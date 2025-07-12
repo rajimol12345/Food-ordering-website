@@ -1,6 +1,5 @@
 [
   {
-    "id": 1,
     "image":"/images/Banner of Spice Villa.png",
     "name": "Spice Villa",
     "address": "123 Main Street, Mumbai",
@@ -11,7 +10,6 @@
     "openingHours": "10:00 AM - 11:00 PM"
   },
   {
-    "id": 2,
     "image": "/images/Pastapalace.avif",
     "name": "Pasta Palace",
     "address": "456 Olive Road, Delhi",
@@ -22,7 +20,6 @@
     "openingHours": "11:30 AM - 10:30 PM"
   },
   {
-    "id": 3,
     "image": "/images/sushi world.jpg",
     "name": "Sushi World",
     "address": "789 Sakura Lane, Bangalore",
@@ -33,7 +30,6 @@
     "openingHours": "12:00 PM - 10:00 PM"
   },
   {
-    "id": 4,
     "image": "/images/buger hub.jpg",
     "name": "The Burger Hub",
     "address": "321 King Street, Chennai",
@@ -44,7 +40,6 @@
     "openingHours": "10:00 AM - 12:00 AM"
   },
   {
-    "id": 5,
     "image": "/images/Restaurant cafe.jpg",
     "name": "Madras Cafe",
     "address": "45 NSK Salai, Chennai, Tamil Nadu",
@@ -55,7 +50,6 @@
     "openingHours": "8:00 AM - 10:00 PM"
   },
   {
-    "id": 6,
     "image": "/images/Anjappar.jpg",
     "name": "Anjappar Chettinad Restaurant",
     "address": "20 Ranganathan Street, Coimbatore, Tamil Nadu",
@@ -66,7 +60,6 @@
     "openingHours": "11:00 AM - 11:00 PM"
   },
   {
-    "id": 7,
     "image": "/images/sangeetha.jpg",
     "name": "Sangeetha Veg Restaurant",
     "address": "12 MG Road, Madurai, Tamil Nadu",
@@ -77,7 +70,6 @@
     "openingHours": "7:30 AM - 10:30 PM"
   },
   {
-    "id": 8,
     "image": "/images/thalapakkati.jpg",
     "name": "Dindigul Thalappakatti",
     "address": "88 Race Course Road, Tiruchirappalli, Tamil Nadu",

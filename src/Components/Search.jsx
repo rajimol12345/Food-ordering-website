@@ -1,49 +1,27 @@
 import React, { useState } from 'react';
+import { FaSearch } from 'react-icons/fa'; // Import the search icon
+
 
 const Search = ({ onSearch }) => {
-  const [searchType, setSearchType] = useState('all');
   const [query, setQuery] = useState('');
 
-  const handleSearch = () => {
-    if (onSearch && typeof onSearch === 'function') {
-      onSearch(searchType, query.trim());
-    }
-  };
-
-  const handleKeyDown = (e) => {
-    if (e.key === 'Enter') {
-      handleSearch();
-    }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSearch(query);
   };
 
   return (
-    <div className="search-box d-flex gap-2 mt-5">
-      <select
-        className="form-select"
-        value={searchType}
-        onChange={e => setSearchType(e.target.value)}
-        style={{ maxWidth: '180px' }}
-      >
-        <option value="all">All</option>
-        <option value="location">Location</option>
-        <option value="cuisine">Cuisine</option>
-        <option value="dish">Dish</option>
-        <option value="restaurant">Restaurant Name</option>
-      </select>
-
+    <form className="search-bar" onSubmit={handleSubmit}>
       <input
         type="text"
-        className="form-control"
-        placeholder="Search for food, cuisine, or restaurants..."
+        placeholder="Search..."
         value={query}
-        onChange={e => setQuery(e.target.value)}
-        onKeyDown={handleKeyDown}
+        onChange={(e) => setQuery(e.target.value)}
       />
-
-      <button className="btn btn-danger" onClick={handleSearch}>
-        Search
+      <button type="submit">
+        <FaSearch />
       </button>
-    </div>
+    </form>
   );
 };
 

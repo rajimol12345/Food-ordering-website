@@ -20,19 +20,27 @@ import SavedItems from './Components/SavedItems';
 import Search from './Components/Search'; 
 import Accounts from './Components/Accounts';
 import EditProfile from './Components/EditProfile';
+import FoodDetail from './Components/FoodDetail';
 // Admin
 import Adminlogin from './Components/Admin/Adminlogin';
 import AdminRegister from './Components/Admin/AdminRegisteration';
 import AdminDashboard from './Components/Admin/AdminDashboard';
 import AdminLayout from './Components/Admin/AdminLayout';
 import Overview from './Components/Admin/Overview';
+import RestaurantForm from './Components/Admin/RestaurantForm';
+import AddMenu from './Components/Admin/AddMenu';
+import AllOrders from './Components/Admin/AllOrders';
+import ActiveOrders from './Components/Admin/ActiveOrders';
+import Settings from './Components/Admin/Settings';
+import AdminProfile from './Components/Admin/AdminProfile';
+import AdminLogout from './Components/Admin/AdminLogout';
 function App() {
   const location = useLocation();
 
   // Routes where Header should be hidden
-  const hideHeaderOnRoutes = ['/', '/LoginForm', '/RegisterForm','/admin/login','/admin/register','/admin/dashboard','/admin','/admin/overview'];
-  const hideFooterOnRoutes = ['/admin/login','/admin/register','/admin/dashboard','/admin','/admin/overview'];
-  const hideSearchOnRoutes = ['/', '/LoginForm', '/RegisterForm','/admin/login','/admin/register','/admin/dashboard','/admin','/admin/overview'];
+  const hideHeaderOnRoutes = ['/', '/LoginForm', '/RegisterForm','/admin/login','/admin/register','/admin/dashboard','/admin','/admin/overview','/admin/addrestaurant','/admin/addmenu','/admin/allorders','/admin/activeorders','/admin/settings','/admin/adminprofile','/admin/adminlogout'];
+  const hideFooterOnRoutes = ['/admin/login','/admin/register','/admin/dashboard','/admin','/admin/overview','/admin/addrestaurant','/admin/addmenu','/admin/allorders','/admin/activeorders','/admin/settings','/admin/adminprofile','/admin/adminlogout'];
+  const hideSearchOnRoutes = ['/', '/LoginForm', '/RegisterForm','/admin/login','/admin/register','/admin/dashboard','/admin','/admin/overview','/admin/addrestaurant','/admin/addmenu','/admin/allorders','/admin/activeorders','/admin/settings','/admin/adminprofile','/admin/adminlogout'];
 
   const shouldHideHeader = hideHeaderOnRoutes.includes(location.pathname);
   const shouldHideFooter = hideFooterOnRoutes.includes(location.pathname);
@@ -46,7 +54,6 @@ function App() {
       {/* Search */}
       {!shouldHideSearch && <Search />}
 
-      <div style={{ padding: '20px' }}>
         {/* Routes */}
         <Routes>
   {/* Public Routes */}
@@ -54,7 +61,7 @@ function App() {
   <Route path="/LoginForm" element={<LoginForm />} />
   <Route path="/RegisterForm" element={<RegisterForm />} />
   <Route path="/Home" element={<Home />} />
-  <Route path="/restaurant/:id" element={<RestaurantDetail />} />
+  <Route path="/restaurant/:restaurantid" element={<RestaurantDetail />} />
   <Route path="/Cart" element={<Cart />} />
   <Route path="/Order" element={<Orders />} />
   <Route path="/SavedItems" element={<SavedItems />} />
@@ -64,6 +71,7 @@ function App() {
   <Route path="/EditProfile" element={<EditProfile />} />
   <Route path="/Logout" element={<Logout />} />
   <Route path="/RestaurantList" element={<RestaurantList />} />
+  <Route path="/food/:id" element={<FoodDetail />} />
   <Route path="*" element={<Navigate to="/" replace />} />
 
   {/* Admin Auth (No Layout) */}
@@ -74,6 +82,13 @@ function App() {
   <Route path="/admin" element={<AdminLayout />}>
     <Route path="/admin/dashboard" element={<AdminDashboard />} />
     <Route path="/admin/overview" element={<Overview />} />
+     <Route path="/admin/addrestaurant" element={<RestaurantForm />} />
+     <Route path="/admin/addmenu" element={<AddMenu />} />
+      <Route path="/admin/allorders" element={<AllOrders />} />
+      <Route path="/admin/activeorders" element={<ActiveOrders />} />
+      <Route path="/admin/settings" element={<Settings />} />
+      <Route path="/admin/adminprofile" element={<AdminProfile />} />
+      <Route path="/admin/adminlogout" element={<AdminLogout />} />
     {/* You can add more nested admin routes here, e.g.: */}
     {/* <Route path="orders" element={<AdminOrders />} /> */}
     {/* <Route path="restaurants" element={<AdminRestaurants />} /> */}
@@ -84,7 +99,7 @@ function App() {
         {/* Footer */}
         {!shouldHideFooter && <Footer />}
       </div>
-    </div>
+    
   );
 }
 

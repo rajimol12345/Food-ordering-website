@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -7,12 +7,29 @@ import './login.css';
 export default function LoginForm() {
   const navigate = useNavigate();
 
+  // ✅ Redirect if already logged in
+  useEffect(() => {
+    const token = getCookie('token');
+    if (token) {
+      navigate('/Home'); // User already logged in
+    }
+  }, [navigate]);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
   } = useForm();
+
+  // ✅ Read cookie function
+  const getCookie = (name) => {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+    return null;
+  };
+
   const onSubmit = async (data) => {
     try {
       const response = await axios.post('http://localhost:5000/food-ordering-app/api/user/login', {
@@ -21,8 +38,11 @@ export default function LoginForm() {
       });
 
       const user = response.data;
-      let userID = user.token;
-      document.cookie = "token="+userID+"; max-age=3600; path=/";
+      const userID = user.token;
+
+      // ✅ Set cookie for 1 hour
+      document.cookie = `token=${userID}; max-age=3600; path=/`;
+
       alert('Login successful!');
       reset();
       navigate('/Home');

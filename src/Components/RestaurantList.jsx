@@ -4,46 +4,41 @@ import axios from 'axios';
 
 function RestaurantList() {
   const [restaurants, setRestaurants] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
+  const [isSearching, setIsSearching] = useState(false);
 
   useEffect(() => {
-    // Load data from local JSON or API
-    axios.get('/history.json')
+    axios.get('http://localhost:5000/api/Admin/list')
       .then(response => setRestaurants(response.data))
       .catch(() => console.error('Failed to fetch restaurants.'));
   }, []);
 
   return (
-    <div className="container py-5">
-      <h1 className="mb-4"><i className="fas fa-utensils me-2"></i>Top Restaurants</h1>
-
-      <div className="row g-5">
-        {restaurants.map((restaurant) => (
-          <div key={restaurant.id} className="col-md-4">
-            <Link to={`/restaurant/${restaurant.id}`} className="text-decoration-none text-dark">
-              <div className="card h-100 shadow-sm">
-                <img
-                  src={restaurant.image}
-                  alt={restaurant.name}
-                  className="card-img-top"
-                  style={{ height: '200px', objectFit: 'cover' }}
-                />
-                <div className="card-body">
-                  <h5 className="card-title">{restaurant.name}</h5>
-                  <p className="card-text">
-                    <i className="fas fa-utensil-spoon me-2 text-secondary"></i>
-                    <strong>Cuisine:</strong> {restaurant.cuisine}
-                  </p>
-                  <p className="card-text">
-                    <i className="fas fa-star text-warning me-2"></i>
-                    <strong>Rating:</strong> {restaurant.rating}
-                  </p>
-                </div>
-              </div>
-            </Link>
-          </div>
+    <section className="section">
+      <h3 className="section-title">Popular Restaurants</h3>
+      <div className="grid">
+        {(isSearching ? searchResults : restaurants).map(restaurant => (
+          <Link to={`/restaurant/${restaurant._id}`} key={restaurant.id} className="card link-card">
+            <img
+              src={restaurant.image}
+              alt={`Banner of ${restaurant.name}`}
+              className="card-img"
+            />
+            <div className="card-body">
+              <h5>{restaurant.name}</h5>
+              <p><strong>Address:</strong> {restaurant.address}</p>
+              <p><strong>Cuisine:</strong> {restaurant.cuisine}</p>
+              <p><strong>Phone:</strong> {restaurant.phone}</p>
+              <p><strong>Rating:</strong> <span style={{ color: 'gold' }}>★</span> {restaurant.rating}</p>
+              <p><strong>Hours:</strong> {restaurant.openingHours}</p>
+            </div>
+          </Link>
         ))}
       </div>
-    </div>
+      {isSearching && searchResults.length === 0 && (
+        <p className="center-text">No restaurants match your search.</p>
+      )}
+    </section>
   );
 }
 

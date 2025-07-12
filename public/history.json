@@ -1,6 +1,5 @@
 [
   {
-    "id": 1,
     "image":"/images/Banner of Spice Villa.png",
     "name": "Spice Villa",
     "address": "123 Main Street, Mumbai",
@@ -13,73 +12,10 @@
     "offers": [
       "10% off on orders above ₹500",
       "Free dessert with every main course on weekends"
-    ],
-    "menu": [
-  {
-    "name": "Paneer Butter Masala",
-    "description": "Cottage cheese cubes simmered in a rich, creamy tomato-based gravy.",
-    "price": 250,
-    "image": "/images/paneer butter masala.jpg"
+    ]
+    
   },
   {
-    "name": "Butter Chicken",
-    "description": "Tender chicken chunks cooked in a buttery tomato cream sauce.",
-    "price": 280,
-    "image": "/images/butter Chicken.jpg"
-  },
-  {
-    "name": "Veg Biryani",
-    "description": "Fragrant basmati rice cooked with fresh vegetables and aromatic spices.",
-    "price": 200,
-    "image": "/images/veg briyani.jpg"
-  },
-  {
-    "name": "Chicken Biryani",
-    "description": "Spicy chicken layered with saffron-infused basmati rice.",
-    "price": 300,
-    "image": "/images/Chicken-Briyani.jpg"
-  },
-  {
-    "name": "Garlic Naan",
-    "description": "Soft leavened Indian bread topped with garlic and butter.",
-    "price": 50,
-    "image": "/images/garlic naan.jpg"
-  },
-  {
-    "name": "Tandoori Roti",
-    "description": "Whole wheat flatbread baked in a tandoor oven.",
-    "price": 20,
-    "image": "/images/thandoori roti.avif"
-  },
-  {
-    "name": "Gulab Jamun",
-    "description": "Milk-solid dumplings soaked in warm rose-flavored syrup.",
-    "price": 100,
-    "image": "/images/gulab-jamun.avif"
-  },
-  {
-    "name": "Rasgulla",
-    "description": "Spongy cheese balls in light sugar syrup.",
-    "price": 90,
-    "image": "/images/Rasgulla.avif"
-  },
-  {
-    "name": "Masala Dosa",
-    "description": "Crispy South Indian crepe stuffed with spiced potato filling.",
-    "price": 120,
-    "image": "/images/masala dosa.avif"
-  },
-  {
-    "name": "Lassi",
-    "description": "Traditional Punjabi sweet yogurt drink served chilled.",
-    "price": 50,
-    "image": "/images/lassi.avif"
-  }
-]
-
-  },
-  {
-    "id": 2,
     "image": "/images/Pastapalace.avif",
     "name": "Pasta Place",
     "address": "456 Olive Road, Delhi",
@@ -92,42 +28,9 @@
     "offers": [
       "Buy 1 Get 1 Free on Pasta Tuesdays",
       "Free garlic bread with every order above ₹600"
-    ],
-    "menu": [
-      {
-        "name": "Spaghetti Carbonara",
-        "description": "Classic Roman pasta with eggs, cheese, pancetta, and pepper.",
-        "price": 350,
-        "image": "/images/Spaghetti Carbonara.avif"
-      },
-      {
-        "name": "Margherita Pizza",
-        "description": "Wood-fired pizza with fresh tomatoes, mozzarella, and basil.",
-        "price": 300,
-        "image": "/images/Margherita Pizza.avif"
-      },
-      {
-        "name": "Fettuccine Alfredo",
-        "description": "Creamy Alfredo sauce over flat pasta ribbons.",
-        "price": 320,
-        "image": "/images/Fettuccine Alfredo.avif"
-      },
-      {
-        "name": "Tiramisu",
-        "description": "Classic Italian dessert with layers of coffee-soaked ladyfingers and mascarpone cream.",
-        "price": 200,
-        "image": "/images/Tiramisu.avif"
-      },
-      {
-        "name": "Garlic Bread",
-        "description": "Toasted bread with garlic butter and herbs.",
-        "price": 90,
-        "image": "/images/Garlic Bread.avif"
-      }
     ]
   },
    {
-    "id": 3,
     "image": "/images/sushi world.jpg",
     "name": "Sushi World",
     "address": "789 Sakura Lane, Bangalore",
@@ -140,24 +43,9 @@
     "offers": [
       "Free miso soup with every sushi platter",
       "Buy 1 Get 1 on select rolls (Monday only)"
-    ],
-    "menu": [
-      {
-        "name": "Salmon Nigiri",
-        "description": "Fresh sliced salmon over seasoned rice.",
-        "price": 320,
-        "image": "/images/Salmon Nigiri.jpg"
-      },
-      {
-        "name": "California Roll",
-        "description": "Crab, avocado and cucumber rolled in seaweed and rice.",
-        "price": 280,
-        "image": "/images/California Roll.avif"
-      }
     ]
-  },
+    },
   {
-  "id": 4,
   "image": "/images/buger hub.jpg",
   "name": "The Burger Hub",
   "address": "321 King Street, Chennai",
@@ -170,42 +58,9 @@
   "offers": [
     "Buy 1 Get 1 Free every Tuesday",
     "Free fries with every large burger combo"
-  ],
-  "menu": [
-    {
-      "name": "Classic Cheeseburger",
-      "description": "Beef patty with cheddar, lettuce, tomato, and pickles.",
-      "price": 220,
-      "image": "/images/Classic Cheeseburger.avif"
-    },
-    {
-      "name": "BBQ Bacon Burger",
-      "description": "Grilled beef patty with crispy bacon and BBQ sauce.",
-      "price": 260,
-      "image": "/images/BBQ Bacon Burger.avif"
-    },
-    {
-      "name": "Veggie Delight",
-      "description": "Grilled veggie patty with avocado and sprouts.",
-      "price": 200,
-      "image": "/images/Veggie Delight.avif"
-    },
-    {
-      "name": "French Fries",
-      "description": "Golden crispy fries served with ketchup.",
-      "price": 80,
-      "image": "/images/French Fries.avif"
-    },
-    {
-      "name": "Chocolate Milkshake",
-      "description": "Creamy chocolate shake topped with whipped cream.",
-      "price": 120,
-      "image": "/images/Chocolate Milkshake.avif"
-    }
   ]
 },
 {
-  "id": 5,
   "image": "/images/Restaurant cafe.jpg",
   "name": "Madras Cafe",
   "address": "45 NSK Salai, Chennai, Tamil Nadu",
@@ -218,42 +73,9 @@
   "offers": [
     "Free filter coffee with breakfast combo",
     "15% off on all meals before 10 AM"
-  ],
-  "menu": [
-    {
-      "name": "Idli Sambar",
-      "description": "Soft steamed rice cakes served with spicy sambar and chutney.",
-      "price": 60,
-      "image": "/images/Idli Sambar.jpg"
-    },
-    {
-      "name": "Medu Vada",
-      "description": "Crispy fried lentil doughnuts served with sambar and coconut chutney.",
-      "price": 70,
-      "image": "/images/medu-vada.jpg"
-    },
-    {
-      "name": "Masala Dosa",
-      "description": "Crispy dosa stuffed with spicy potato filling.",
-      "price": 100,
-      "image": "/images/masala dosa.avif"
-    },
-    {
-      "name": "Upma",
-      "description": "Semolina dish seasoned with mustard seeds and curry leaves.",
-      "price": 50,
-      "image": "/images/Upma.webp"
-    },
-    {
-      "name": "Filter Coffee",
-      "description": "Traditional South Indian coffee with rich aroma and froth.",
-      "price": 30,
-      "image": "/images/filtercoffee.png"
-    }
   ]
 },
 {
-  "id": 6,
   "image": "/images/Anjappar.jpg",
   "name": "Anjappar Chettinad Restaurant",
   "address": "20 Ranganathan Street, Coimbatore, Tamil Nadu",
@@ -266,48 +88,9 @@
   "offers": [
     "Free starter on orders above ₹800",
     "Buy 2 get 1 free on Chettinad Chicken during weekdays"
-  ],
-  "menu": [
-    {
-      "name": "Chettinad Chicken",
-      "description": "Spicy chicken curry made with a unique Chettinad spice blend.",
-      "price": 320,
-      "image": "/images/Chicken-Chettinad.png"
-    },
-    {
-      "name": "Mutton Sukka",
-      "description": "Dry-fried mutton cubes with spicy masala and curry leaves.",
-      "price": 360,
-      "image": "/images/Mutton_Sukka.png"
-    },
-    {
-      "name": "Kothu Parotta",
-      "description": "Shredded parotta stir-fried with egg, meat, and Chettinad spices.",
-      "price": 150,
-      "image": "/images/Kothu_Parotta.png"
-    },
-    {
-      "name": "Prawn Masala",
-      "description": "Juicy prawns cooked in Chettinad-style thick spicy gravy.",
-      "price": 400,
-      "image": "/images/Prawn_Masala.png"
-    },
-    {
-      "name": "Vegetable Kurma",
-      "description": "Mixed vegetables in a mildly spiced coconut gravy.",
-      "price": 180,
-      "image": "/images/Vegetable_Kurma.png"
-    },
-    {
-      "name": "Appam",
-      "description": "Soft-centered, crispy-laced fermented rice pancake, perfect with curry.",
-      "price": 40,
-      "image": "/images/Appam.png"
-    }
   ]
 },
 {
-  "id": 7,
   "image": "/images/sangeetha.jpg",
   "name": "Sangeetha Veg Restaurant",
   "address": "12 MG Road, Madurai, Tamil Nadu",
@@ -320,42 +103,9 @@
   "offers": [
     "Combo Breakfast at ₹99 till 10 AM",
     "20% off on weekend lunch thali"
-  ],
-  "menu": [
-    {
-      "name": "Idli Vada Combo",
-      "description": "Steamed rice cakes served with crispy lentil fritters, chutney and sambar.",
-      "price": 80,
-      "image": "/images/Idli Vada Combo.avif"
-    },
-    {
-      "name": "Ghee Roast Dosa",
-      "description": "Crispy dosa roasted in ghee, served with chutneys and sambar.",
-      "price": 110,
-      "image": "/images/Ghee_Roast_Dosa.png"
-    },
-    {
-      "name": "Mini Tiffin",
-      "description": "A platter with idli, dosa, pongal, vada, and kesari – perfect for variety.",
-      "price": 130,
-      "image": "/images/Mini_Tiffin.png"
-    },
-    {
-      "name": "South Indian Thali",
-      "description": "Traditional vegetarian thali with rice, curries, sambar, rasam, curd, and dessert.",
-      "price": 180,
-      "image": "/images/South Indian Thali.avif"
-    },
-    {
-      "name": "Filter Coffee",
-      "description": "Strong South Indian filter coffee served in traditional dabarah set.",
-      "price": 40,
-      "image": "/images/filtercoffee.png"
-    }
   ]
 },
 {
-  "id": 8,
   "image": "/images/thalapakkati.jpg",
   "name": "Dindigul Thalappakatti",
   "address": "88 Race Course Road, Tiruchirappalli, Tamil Nadu",
@@ -368,50 +118,6 @@
   "offers": [
     "Buy 2 Chicken Biryani, Get 1 Free (Mon–Thu)",
     "Flat 15% off on all family packs"
-  ],
-  "menu": [
-    {
-      "name": "Mutton Biryani",
-      "description": "Signature Dindigul biryani made with tender mutton and seeraga samba rice.",
-      "price": 340,
-      "image": "/images/Mutton-Biryani.jpg"
-    },
-    {
-      "name": "Chicken Biryani",
-      "description": "Traditional chicken biryani infused with aromatic spices.",
-      "price": 290,
-      "image": "/images/chiken briyani.jpg"
-    },
-    {
-      "name": "Egg Biryani",
-      "description": "Flavored rice cooked with boiled eggs and Dindigul-style masala.",
-      "price": 220,
-      "image": "/images/Egg Biryani.jpg"
-    },
-    {
-      "name": "Biryani Rice with Brinjal Curry",
-      "description": "Spiced rice served with tangy and spicy brinjal curry.",
-      "price": 180,
-      "image": "/images/Biryani Rice with Brinjal Curry.JPG"
-    },
-    {
-      "name": "Parotta with Salna",
-      "description": "Layered flatbread served with a spicy meat gravy.",
-      "price": 100,
-      "image": "/images/Parotta with Salna.jpeg"
-    },
-    {
-      "name": "Chicken 65",
-      "description": "Deep-fried spicy chicken chunks tossed in curry leaves and chili.",
-      "price": 150,
-      "image": "/images/Chicken 65.jpg"
-    },
-    {
-      "name": "Kulfi",
-      "description": "Traditional Indian frozen dessert with pistachios and saffron.",
-      "price": 60,
-      "image": "/images/Kulfi.jpg"
-    }
   ]
 }
 ]

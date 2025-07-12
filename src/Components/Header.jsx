@@ -1,14 +1,33 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
-import { Link } from 'react-router-dom';
+import { 
+  FaUtensils,
+  FaHome,
+  FaShoppingCart,
+  FaHeart,
+  FaBox,
+  FaUser,
+  FaSignOutAlt
+} from 'react-icons/fa';
 
 const Header = () => {
+  // Define your nav items in an array for cleaner rendering
+  const navItems = [
+    { Icon: FaHome, to: '/Home', label: 'Home' },
+    { Icon: FaShoppingCart, to: '/Cart', label: 'Cart' },
+    { Icon: FaHeart, to: '/SavedItems', label: 'Saved Items' },
+    { Icon: FaBox, to: '/Order', label: 'My Orders' },
+    { Icon: FaUser, to: '/Accounts', label: 'Account' },
+    { Icon: FaSignOutAlt, to: '/Logout', label: 'Logout' },
+  ];
+
   return (
     <nav className="navbar navbar-expand-lg shadow-sm">
       <div className="container-fluid">
         <Link className="navbar-brand fw-bold text-dark" to="/Home">
-          <i className="fas fa-utensils me-2"></i>EatYoWay
+          <FaUtensils className="me-2" /> EatYoWay
         </Link>
 
         <button
@@ -25,36 +44,13 @@ const Header = () => {
 
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav ms-auto">
-            <li className="nav-item">
-              <Link className="nav-link" to="/Home">
-                <i className="fas fa-home me-1"></i>Home
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/Cart">
-                <i className="fas fa-shopping-cart me-1"></i>Cart
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/SavedItems">
-                <i className="fas fa-heart me-1"></i>Saved Items
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/Order">
-                <i className="fas fa-box me-1"></i>My Orders
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/Accounts">
-                <i className="fas fa-user me-1"></i>Account
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/Logout">
-                <i className="fas fa-sign-out-alt me-1"></i>Logout
-              </Link>
-            </li>
+            {navItems.map(({ Icon, to, label }) => (
+              <li className="nav-item" key={to}>
+                <Link className="nav-link" to={to}>
+                  <Icon className="me-1" /> {label}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
       </div>

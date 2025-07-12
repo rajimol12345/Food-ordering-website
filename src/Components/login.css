@@ -4,11 +4,11 @@
   box-sizing: border-box;
 }
 
-body {
+/* body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   justify-content: center;
   align-items: center;
-}
+} */
 
 .container {
   width: 100%;

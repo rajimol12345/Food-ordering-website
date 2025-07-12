@@ -34,13 +34,13 @@ const Sidebar = ({ isOpen }) => {
 
         <h4><span>Restaurants</span><div className="menu-separator"></div></h4>
         <li>
-          <Link to="/admin/projects" data-tooltip="All Restaurants">
+          <Link to="/admin/addrestaurant" data-tooltip="Add Restaurants">
             <span className="material-symbols-outlined large-icon">restaurant</span>
-            {isOpen && 'All Restaurants'}
+            {isOpen && 'Add Restaurants'}
           </Link>
         </li>
         <li>
-          <Link to="/admin/groups" data-tooltip="Add Menu">
+          <Link to="/admin/addmenu" data-tooltip="Add Menu">
             <span className="material-symbols-outlined large-icon">add_business</span>
             {isOpen && 'Add Menu'}
           </Link>
@@ -48,13 +48,13 @@ const Sidebar = ({ isOpen }) => {
 
         <h4><span>Orders</span><div className="menu-separator"></div></h4>
         <li>
-          <Link to="/admin/orders" data-tooltip="All Orders">
+          <Link to="/admin/allorders" data-tooltip="All Orders">
             <span className="material-symbols-outlined large-icon">receipt_long</span>
             {isOpen && 'All Orders'}
           </Link>
         </li>
         <li>
-          <Link to="/admin/active-orders" data-tooltip="Active Orders">
+          <Link to="/admin/activeorders" data-tooltip="Active Orders">
             <span className="material-symbols-outlined large-icon">local_shipping</span>
             {isOpen && 'Active Orders'}
           </Link>
@@ -70,13 +70,13 @@ const Sidebar = ({ isOpen }) => {
 
         <h4><span>Account</span><div className="menu-separator"></div></h4>
         <li>
-          <Link to="/admin/profile" data-tooltip="Profile">
+          <Link to="/admin/adminprofile" data-tooltip="Profile">
             <span className="material-symbols-outlined large-icon">account_circle</span>
             {isOpen && 'Profile'}
           </Link>
         </li>
         <li>
-          <Link to="/logout" data-tooltip="Logout">
+          <Link to="/admin/adminlogout" data-tooltip="Logout">
             <span className="material-symbols-outlined large-icon">logout</span>
             {isOpen && 'Logout'}
           </Link>

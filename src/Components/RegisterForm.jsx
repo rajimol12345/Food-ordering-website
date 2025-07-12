@@ -24,6 +24,7 @@ export default function RegisterForm() {
         email: data.email,
         password:btoa( data.password),
         phone: data.phone,
+        confirmPassword: btoa(data.confirm_password)
       });
 
       alert('Registration successful!');
