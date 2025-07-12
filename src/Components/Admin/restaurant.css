@@ -1,0 +1,91 @@
+.restaurant-container {
+  padding: 20px;
+  max-width: 1000px;
+  margin: auto;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+.restaurant-header {
+  margin-top:70px ;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.restaurant-header h2 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.restaurant-header button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.restaurant-header button:hover {
+  background-color: #0056b3;
+}
+
+.restaurant-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.restaurant-table th,
+.restaurant-table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.restaurant-table th {
+  background-color: #f0f0f0;
+}
+
+.restaurant-table tbody tr:hover {
+  background-color: #f7f7f7;
+}
+
+.restaurant-table button {
+  margin-right: 5px;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.restaurant-table button:nth-child(1) {
+  background-color: #28a745;
+  color: white;
+}
+
+.restaurant-table button:nth-child(1):hover {
+  background-color: #218838;
+}
+
+.restaurant-table button:nth-child(2) {
+  background-color: #ffc107;
+  color: white;
+}
+
+.restaurant-table button:nth-child(2):hover {
+  background-color: #e0a800;
+}
+
+.restaurant-table button:nth-child(3) {
+  background-color: #dc3545;
+  color: white;
+}
+
+.restaurant-table button:nth-child(3):hover {
+  background-color: #c82333;
+}

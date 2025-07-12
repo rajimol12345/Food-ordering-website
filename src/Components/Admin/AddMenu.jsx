@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import './Admin.css';
 
 const AddMenu = () => {
@@ -13,10 +14,9 @@ const AddMenu = () => {
 
   // Fetch all restaurants on mount
   useEffect(() => {
-    fetch('http://localhost:5000/api/Admin/list') 
-      .then(res => res.json())
-      .then(data => {
-        setRestaurants(Array.isArray(data) ? data : []);
+    axios.get('http://localhost:5000/api/Admin/list')
+      .then(res => {
+        setRestaurants(Array.isArray(res.data) ? res.data : []);
       })
       .catch(err => {
         console.error('Failed to load restaurants:', err);
@@ -24,12 +24,12 @@ const AddMenu = () => {
       });
   }, []);
 
-  // Handle text input change
+  // Handle input changes
   const handleChange = (e) => {
     setMenuItem({ ...menuItem, [e.target.name]: e.target.value });
   };
 
-  // Handle image upload and convert to base64
+  // Handle image upload
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -37,29 +37,22 @@ const AddMenu = () => {
       reader.onloadend = () => {
         setMenuItem((prev) => ({
           ...prev,
-          image: reader.result, // base64 string
+          image: reader.result,
         }));
       };
       reader.readAsDataURL(file);
     }
   };
 
-  // Handle form submit
+  // Submit form with axios
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch('http://localhost:5000/api/menu/add', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(menuItem)
-      });
-
-      const result = await res.json();
-      console.log('Menu added:', result);
+      const res = await axios.post('http://localhost:5000/api/menu/addmenu', menuItem);
+      console.log('Menu added:', res.data);
       alert('Menu added successfully');
-      // Optionally reset form
+
+      // Reset form
       setMenuItem({
         name: '',
         price: '',
@@ -77,20 +70,20 @@ const AddMenu = () => {
     <form onSubmit={handleSubmit}>
       <h2>Add Menu</h2>
 
-      {/* Dropdown for Restaurant Selection */}
-      <select
-        name="restaurantId"
-        value={menuItem.restaurantId}
-        onChange={handleChange}
-        required
-      >
-        <option value="">Select Restaurant</option>
-        {restaurants.map((rest) => (
-          <option key={rest.restaurantId} value={rest.restaurantId}>
-            {rest.name}
-          </option>
-        ))}
-      </select>
+    <select
+  name="restaurantId"
+  value={menuItem.restaurantId}
+  onChange={handleChange}
+  required
+    >
+    <option value="">Select Restaurant</option>
+    {restaurants.map((rest) => (
+      <option key={rest._id} value={rest._id}>
+      {rest.name}
+    </option>
+     ))}
+    </select>
+
 
       <input
         type="text"
@@ -118,7 +111,6 @@ const AddMenu = () => {
         required
       />
 
-      {/* Image Upload */}
       <input
         type="file"
         accept="image/*"
@@ -126,7 +118,6 @@ const AddMenu = () => {
         required
       />
 
-      {/* Preview Image */}
       {menuItem.image && (
         <img
           src={menuItem.image}

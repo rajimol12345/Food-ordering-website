@@ -32,15 +32,17 @@ import AddMenu from './Components/Admin/AddMenu';
 import AllOrders from './Components/Admin/AllOrders';
 import ActiveOrders from './Components/Admin/ActiveOrders';
 import Settings from './Components/Admin/Settings';
-import AdminProfile from './Components/Admin/AdminProfile';
+import UsersList from './Components/Admin/UsersList';
 import AdminLogout from './Components/Admin/AdminLogout';
+import Resturants from './Components/Admin/Resturants';
+import MenuList from './Components/Admin/MenuList';
 function App() {
   const location = useLocation();
 
   // Routes where Header should be hidden
-  const hideHeaderOnRoutes = ['/', '/LoginForm', '/RegisterForm','/admin/login','/admin/register','/admin/dashboard','/admin','/admin/overview','/admin/addrestaurant','/admin/addmenu','/admin/allorders','/admin/activeorders','/admin/settings','/admin/adminprofile','/admin/adminlogout'];
-  const hideFooterOnRoutes = ['/admin/login','/admin/register','/admin/dashboard','/admin','/admin/overview','/admin/addrestaurant','/admin/addmenu','/admin/allorders','/admin/activeorders','/admin/settings','/admin/adminprofile','/admin/adminlogout'];
-  const hideSearchOnRoutes = ['/', '/LoginForm', '/RegisterForm','/admin/login','/admin/register','/admin/dashboard','/admin','/admin/overview','/admin/addrestaurant','/admin/addmenu','/admin/allorders','/admin/activeorders','/admin/settings','/admin/adminprofile','/admin/adminlogout'];
+  const hideHeaderOnRoutes = ['/', '/LoginForm', '/RegisterForm','/admin/login','/admin/register','/admin/dashboard','/admin','/admin/overview','/admin/addrestaurant','/admin/addmenu','/admin/allorders','/admin/activeorders','/admin/settings','/admin/adminprofile','/admin/adminlogout','/admin/users','/admin/restaurant'];
+  const hideFooterOnRoutes = ['/admin/login','/admin/register','/admin/dashboard','/admin','/admin/overview','/admin/addrestaurant','/admin/addmenu','/admin/allorders','/admin/activeorders','/admin/settings','/admin/adminprofile','/admin/adminlogout','/admin/users','/admin/restaurant'];
+  const hideSearchOnRoutes = ['/', '/LoginForm', '/RegisterForm','/admin/login','/admin/register','/admin/dashboard','/admin','/admin/overview','/admin/addrestaurant','/admin/addmenu','/admin/allorders','/admin/activeorders','/admin/settings','/admin/adminprofile','/admin/adminlogout','/admin/users','/admin/restaurant'];
 
   const shouldHideHeader = hideHeaderOnRoutes.includes(location.pathname);
   const shouldHideFooter = hideFooterOnRoutes.includes(location.pathname);
@@ -87,8 +89,10 @@ function App() {
       <Route path="/admin/allorders" element={<AllOrders />} />
       <Route path="/admin/activeorders" element={<ActiveOrders />} />
       <Route path="/admin/settings" element={<Settings />} />
-      <Route path="/admin/adminprofile" element={<AdminProfile />} />
+      <Route path="/admin/users" element={<UsersList />} />
       <Route path="/admin/adminlogout" element={<AdminLogout />} />
+      <Route path="/admin/restaurant" element={<Resturants />} />
+      <Route path="/admin/menulist" element={<MenuList/>} />
     {/* You can add more nested admin routes here, e.g.: */}
     {/* <Route path="orders" element={<AdminOrders />} /> */}
     {/* <Route path="restaurants" element={<AdminRestaurants />} /> */}

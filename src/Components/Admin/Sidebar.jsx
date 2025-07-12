@@ -34,15 +34,15 @@ const Sidebar = ({ isOpen }) => {
 
         <h4><span>Restaurants</span><div className="menu-separator"></div></h4>
         <li>
-          <Link to="/admin/addrestaurant" data-tooltip="Add Restaurants">
+          <Link to="/admin/restaurant" data-tooltip="Add Restaurants">
             <span className="material-symbols-outlined large-icon">restaurant</span>
-            {isOpen && 'Add Restaurants'}
+            {isOpen && 'Restaurants'}
           </Link>
         </li>
         <li>
-          <Link to="/admin/addmenu" data-tooltip="Add Menu">
+          <Link to="/admin/menulist" data-tooltip="Add Menu">
             <span className="material-symbols-outlined large-icon">add_business</span>
-            {isOpen && 'Add Menu'}
+            {isOpen && 'Menu'}
           </Link>
         </li>
 
@@ -70,9 +70,9 @@ const Sidebar = ({ isOpen }) => {
 
         <h4><span>Account</span><div className="menu-separator"></div></h4>
         <li>
-          <Link to="/admin/adminprofile" data-tooltip="Profile">
+          <Link to="/admin/users" data-tooltip="User info">
             <span className="material-symbols-outlined large-icon">account_circle</span>
-            {isOpen && 'Profile'}
+            {isOpen && 'User info'}
           </Link>
         </li>
         <li>
